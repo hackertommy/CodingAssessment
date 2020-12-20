@@ -61,13 +61,12 @@ MongoClient.connect('mongodb+srv://admin:admin@cluster0.edohj.mongodb.net/test?r
           })
           .catch(error => console.error(error))
     })
-    app.put('/quotes', (req, res) => {
-        dataCollection.findOneAndUpdate(
-        { name: 'Tom' },
+    app.put('/data', (req, res) => {
+        db.collection('test').findOneAndUpdate(
+        { first_name: req.body.first_name },
         {
           $set: {
             first_name: req.body.first_name,
-            last_name: req.body.last_name
           }
         },
         {
@@ -79,9 +78,9 @@ MongoClient.connect('mongodb+srv://admin:admin@cluster0.edohj.mongodb.net/test?r
           .catch(error => console.error(error))
     })
 
-    app.delete('/quotes', (req, res) => {
-        dataCollection.deleteOne(
-            { email: req.body.email }
+    app.delete('/data', (req, res) => {
+        db.collection('test').findOneAndDelete(
+            { first_name: req.body.first_name }
           )
             .then(result => {
               res.json(`Deleted entry`)
