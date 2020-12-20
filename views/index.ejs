@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+  <form action="/data" method="POST">
+    <input type="text" placeholder="first_name" name="first_name">
+    <input type="text" placeholder="last_name" name="last_name">
+    <input type="text" placeholder="email" name="email">
+    <input type="text" placeholder="gender" name="gender">
+    <input type="text" placeholder="ip_address" name="ip_address">
+    <button type="submit">Submit</button>
+  </form>
+  <div>
+    <h3>Update entry info</h3>
+    <button id="update-button">Replace info</button>
+    <script src="/main.js"></script>
+  </div>
+  <div>
+    <h2>Remove an entry from the list</h2>
+    <button id="delete-button">Delete an entry</button>
+  </div>
+  <h2>Names</h2>
+  <ul class="list">
+    <% for(var i = 0; i < test.length; i++) {%>
+      <li class="test">
+        <span><%= test[i].first_name %></span>
+        <span><%= test[i].last_name %></span>
+      </li>
+    <% } %>
+  </ul>
+</body>
+</html>
+ 
